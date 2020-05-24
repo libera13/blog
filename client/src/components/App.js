@@ -12,6 +12,10 @@ import Footer from "./views/Footer/Footer"
 //true   only logged in user can go inside
 //false  logged in user can't go inside
 
+import PostPage from "./views/PostPage/PostPage";
+import BlogPage from "./views/BlogPage/BlogPage";
+import CreatePage from "./views/BlogPage/Sections/CreatePage";
+
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -21,6 +25,10 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/blog/post/:postId" component={Auth(PostPage, true)} />
+          <Route exact path="/blog" component={Auth(BlogPage, true)} />
+          <Route exact path="/blog/create" component={Auth(CreatePage, true)} />
+
         </Switch>
       </div>
       <Footer />
