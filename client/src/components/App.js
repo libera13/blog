@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
@@ -6,7 +6,7 @@ import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer"
+import Footer from "./views/Footer/Footer";
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -18,9 +18,9 @@ import CreatePage from "./views/BlogPage/Sections/CreatePage";
 
 function App() {
   return (
-    <Suspense fallback={(<div>Loading...</div>)}>
+    <Suspense fallback={<div>Loading...</div>}>
       <NavBar />
-      <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
+      <div style={{ paddingTop: "69px", minHeight: "calc(100vh - 80px)" }}>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
@@ -28,7 +28,6 @@ function App() {
           <Route exact path="/blog/post/:postId" component={Auth(PostPage, true)} />
           <Route exact path="/blog" component={Auth(BlogPage, true)} />
           <Route exact path="/blog/create" component={Auth(CreatePage, true)} />
-
         </Switch>
       </div>
       <Footer />
