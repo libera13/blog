@@ -25,7 +25,13 @@ const UserPostPage = (props) => {
   const renderCards = blogs.map((blog, index) => {
     return <BlogCard blog={blog} index={index} />;
   });
-  if (blogs.length) {
+  if (blogs.length === 0) {
+    return (
+      <div style={{ width: "85%", margin: "3rem auto" }}>
+        <Title level={2}>Masz obecnie 0 artykułów</Title>
+      </div>
+    );
+  } else if (blogs.length > 0) {
     return (
       <div style={{ width: "85%", margin: "3rem auto" }}>
         <Title level={2}>Twoje artykuły</Title>

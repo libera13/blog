@@ -24,7 +24,7 @@ const BlogPage = () => {
 
   return (
     <div style={{ width: "85%", margin: "3rem auto" }}>
-      <Title level={2}> Blog Lists</Title>
+      <Title level={2}> Artykuły</Title>
       <Row gutter={[32, 16]}>{renderCards}</Row>
     </div>
   );

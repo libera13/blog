@@ -49,10 +49,10 @@ function CreatePage(props) {
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center" }}>
-        <Title level={2}> Editor</Title>
+        <Title level={2}> Edytor</Title>
       </div>
       <QuillEditor
-        placeholder={"Start Posting Something"}
+        placeholder={"Zacznij pisac"}
         onEditorChange={onEditorChange}
         onFilesChange={onFilesChange}
       />
@@ -65,7 +65,7 @@ function CreatePage(props) {
             className=""
             onSubmit={onSubmit}
           >
-            Submit
+            Zatwierdź
           </Button>
         </div>
       </Form>

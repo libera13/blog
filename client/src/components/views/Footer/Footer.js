@@ -14,8 +14,9 @@ function Footer() {
       }}
     >
       <p>
-        {" "}
-        Happy Coding <Icon type="smile" />
+        <Icon type="smile" />
+        <Icon type="smile" />
+        <Icon type="smile" />
       </p>
     </div>
   );

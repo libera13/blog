@@ -1,8 +1,8 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import ImageResize from 'quill-image-resize-module-react';  // import as default
-
+import "./quillEditor.css"
+import ImageResize from "quill-image-resize-module-react"; // import as default
 
 import axios from "axios";
 const __ISMSIE__ = navigator.userAgent.match(/Trident/i) ? true : false;
@@ -92,14 +92,23 @@ class VideoBlot extends BlockEmbed {
       videoTag.setAttribute("width", "100%");
       videoTag.setAttribute("controls", "");
 
+      const embedContainer = document.createElement("div");
+      embedContainer.setAttribute("class", "embed-container");
+      const parent = videoTag.parentNode;
+      parent.insertBefore(embedContainer, videoTag);
+      embedContainer.appendChild(videoTag);
+
       return videoTag;
     } else {
+      const embedContainer = document.createElement("div");
+      embedContainer.setAttribute("class", "embed-container");
       const iframeTag = document.createElement("iframe");
+      embedContainer.appendChild(iframeTag);
       iframeTag.setAttribute("src", value);
       iframeTag.setAttribute("frameborder", "0");
       iframeTag.setAttribute("allowfullscreen", true);
       iframeTag.setAttribute("width", "100%");
-      return iframeTag;
+      return embedContainer;
     }
   }
 
@@ -458,7 +467,7 @@ class QuillEditor extends React.Component {
       },
     },
     imageResize: {
-      modules: ['Resize', 'DisplaySize', 'Toolbar'],
+      modules: ["Resize", "DisplaySize", "Toolbar"],
     },
   };
 

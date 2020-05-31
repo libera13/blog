@@ -11,8 +11,8 @@ const BlogCard = (props) => {
         hoverable
         style={{ minWidth: 280, maxWidth:370, marginTop: 16 }}
         actions={[
-          <Icon type="setting" key="setting" />,
-          <Icon type="edit" key="edit" />,
+          // <Icon type="setting" key="setting" />,
+          // <Icon type="edit" key="edit" />,
           <a href={`/blog/post/${blog._id}`}>
             <Icon type="ellipsis" key="ellipsis" />
           </a>,
@@ -21,7 +21,6 @@ const BlogCard = (props) => {
         <Meta
           avatar={<Avatar src={blog.writer.image} />}
           title={blog.writer.name}
-          description="This is the description"
         />
         <div style={{ height: 150, overflowY: "scroll", marginTop: 10 }}>
           <div dangerouslySetInnerHTML={{ __html: blog.content }} />
