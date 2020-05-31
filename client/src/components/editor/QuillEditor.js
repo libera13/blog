@@ -1,6 +1,8 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import ImageResize from 'quill-image-resize-module-react';  // import as default
+
 
 import axios from "axios";
 const __ISMSIE__ = navigator.userAgent.match(/Trident/i) ? true : false;
@@ -114,6 +116,8 @@ class VideoBlot extends BlockEmbed {
 VideoBlot.blotName = "video";
 VideoBlot.tagName = "video";
 Quill.register(VideoBlot);
+
+Quill.register("modules/imageResize", ImageResize);
 
 class FileBlot extends BlockEmbed {
   static create(value) {
@@ -452,6 +456,9 @@ class QuillEditor extends React.Component {
         insertFile: this.fileHandler,
         insertPoll: this.pollHandler,
       },
+    },
+    imageResize: {
+      modules: ['Resize', 'DisplaySize', 'Toolbar'],
     },
   };
 

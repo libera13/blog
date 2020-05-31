@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Card, Avatar, Icon, Col, Typography } from "antd";
+import React from "react";
+import { Card, Avatar, Icon, Col } from "antd";
 
-const { Title } = Typography;
 const { Meta } = Card;
 
 const BlogCard = (props) => {
@@ -11,7 +9,7 @@ const BlogCard = (props) => {
     <Col key={index} lg={8} md={12} xs={24}>
       <Card
         hoverable
-        style={{ width: 370, marginTop: 16 }}
+        style={{ minWidth: 280, maxWidth:370, marginTop: 16 }}
         actions={[
           <Icon type="setting" key="setting" />,
           <Icon type="edit" key="edit" />,

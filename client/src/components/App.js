@@ -15,6 +15,7 @@ import Footer from "./views/Footer/Footer";
 import PostPage from "./views/PostPage/PostPage";
 import BlogPage from "./views/BlogPage/BlogPage";
 import CreatePage from "./views/BlogPage/Sections/CreatePage";
+import UserPostPage from "./views/UserPostPage/UserPostPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/blog/post/:postId" component={Auth(PostPage, true)} />
           <Route exact path="/blog" component={Auth(BlogPage, true)} />
           <Route exact path="/blog/create" component={Auth(CreatePage, true)} />
+          <Route exact path="/blog/user/post/:userId" component={Auth(UserPostPage, true)} />
         </Switch>
       </div>
       <Footer />

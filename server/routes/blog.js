@@ -62,6 +62,16 @@ router.get("/getBlogs", (req, res) => {
     });
 });
 
+router.post("/getUserBlogs", (req, res) => {
+  console.log(req.body.userId)
+  Blog.find({ writer: req.body.userId} )
+    .populate("writer")
+    .exec((err, blogs) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, blogs });
+    });
+});
+
 router.post("/getPost", (req, res) => {
   Blog.findOne({ _id: req.body.postId })
     .populate("writer")
